@@ -1,11 +1,23 @@
 import './App.css';
+import Navbar from './components/Navbar';
+import Search from './components/Search'
+//import GameContent from './components/GameContent';
 
 function App() {
   return (
-    <div className="App">
-      <p>This is the beginning of the App</p>
-      <a target="_blank" rel='noreferrer' href='https://google.co.uk'>Random link</a>
-      <p>Run Stuff</p>
+    <div className="app">
+      <header>  
+        <Navbar />
+      </header>
+
+      <div className="main">
+        <Search />
+      </div>
+
+      <footer>
+
+      </footer>
+
     </div>
   );
 }
