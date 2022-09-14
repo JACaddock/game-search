@@ -1,13 +1,10 @@
-import SearchCard from "./SearchCard"
+import SearchCard from "./SearchCard";
+import ck3_card from "../images/ck3_card.jpg";
+import lego_potc from "../images/lego_POTC_card.jpg";
+import sekiro_card from "../images/sekiro_card.jpg";
+import minecraft_card from "../images/minecraft_card.png";
 
 export default function Search() {
-    const game = {
-        "title": "Game 1",
-        "short": "This is a game",
-        "year": "2012",
-        "desc": "This is a game about stuff"
-    }
-
     return (
         <>
         <div>
@@ -17,10 +14,10 @@ export default function Search() {
         </div>
 
         <div className="card-container">
-            <SearchCard game={game} />
-            <SearchCard game={game} />
-            <SearchCard game={game} />
-            <SearchCard game={game} />
+            <SearchCard game={{"name": "CK3", "img": ck3_card}} />
+            <SearchCard game={{"name": "Lego POTC", "img": lego_potc}} />
+            <SearchCard game={{"name": "Sekiro", "img": sekiro_card}} />
+            <SearchCard game={{"name": "Minecraft", "img": minecraft_card}} />
         </div>
 
         </>
