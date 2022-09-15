@@ -155,11 +155,13 @@ p {
 
   .container {
     width: 350px;
+    outline: none;
   }
 
   .container-image {
     width: 350px;
     height: 200px;
+    outline: none;
   }
 
   .card:hover > .card-image {
@@ -182,6 +184,14 @@ p {
   }
 
   .card-image {
+    outline: none;
+  }
+
+  .container {
+    outline: none;
+  }
+
+  .container-image {
     outline: none;
   }
 
