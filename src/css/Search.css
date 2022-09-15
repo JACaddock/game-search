@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 10px;
     height: 40px;
     width: 350px;
@@ -37,7 +37,7 @@
 .search-dvd {
     width: 10px;
     height: 40px;
-    border-right: 2px solid black;
+    border-right: 1px solid black;
 }
 
 

@@ -1,6 +1,7 @@
 nav {
+  display: flex;
   margin-top: 2rem;
-  text-align: center;
+  justify-content: center;
 }
 
 .app-header {
@@ -22,6 +23,35 @@ nav {
   align-items: center;
   justify-content: center;
   row-gap: 4rem;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #735179;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  width: 1245px;
+}
+
+
+.container-image {
+  max-width: 1245px;
+  max-height: 700px;
+  outline: black 2px solid;
+  border-radius: 10px 10px 0 0;
+}
+
+
+p {
+  background-color: inherit;
+  width: 60%;
 }
 
 

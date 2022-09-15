@@ -20,4 +20,16 @@ body {
 
 h1 {
   font-size: 40px;
+  width: fit-content;
+}
+
+
+h2 {
+  background-color: inherit;
+  width: fit-content;
+}
+
+
+.link {
+  cursor: pointer;
 }

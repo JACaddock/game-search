@@ -10,9 +10,7 @@ function App() {
         <Navbar />
       </header>
 
-      <div className="main">
-        <Search />
-      </div>
+      <Search />
 
       <footer>
 
