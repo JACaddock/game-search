@@ -37,12 +37,12 @@ nav {
   row-gap: 1rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  width: 1245px;
+  width: 1200px;
 }
 
 
 .container-image {
-  width: 1245px;
+  width: 1200px;
   height: 700px;
   outline: black 2px solid;
   border-radius: 10px 10px 0 0;
@@ -91,6 +91,15 @@ p {
   .card-container {
     grid-template-columns: [first] 200px [second] 200px [third] 200px [fourth] 200px;
   }
+
+  .container {
+    width: 950px;
+  }
+
+  .container-image {
+    width: 950px;
+    height: 600px;
+  }
 }
 
 
@@ -99,12 +108,30 @@ p {
   .card-container {
     grid-template-columns: [first] 200px [second] 200px [third] 200px;
   }
+
+  .container {
+    width: 700px;
+  }
+
+  .container-image {
+    width: 700px;
+    height: 450px;
+  }
 }
 
 
 @media screen and (max-width: 710px) {
   .card-container {
     grid-template-columns: [first] 200px [second] 200px;
+  }
+
+  .container {
+    width: 450px;
+  }
+
+  .container-image {
+    width: 450px;
+    height: 300px;
   }
 }
 
@@ -114,8 +141,30 @@ p {
     font-size: 36px;
   }
 
+  .card {
+    outline: none;
+  }
+
+  .card-image {
+    outline: none;
+  }
+
   .card-container {
     grid-template-columns: [first] 200px;
+  }
+
+  .container {
+    width: 350px;
+  }
+
+  .container-image {
+    width: 350px;
+    height: 200px;
+  }
+
+  .card:hover > .card-image {
+    transform: translateY(0);
+    transition-duration: 0ms;
   }
 }
 
@@ -123,5 +172,21 @@ p {
 @media screen and (max-width: 360px) { 
   h1 {
     font-size: 24px;
+  }
+}
+
+
+@media screen and (max-height: 400px) {
+  .card {
+    outline: none;
+  }
+
+  .card-image {
+    outline: none;
+  }
+
+  .card:hover > .card-image {
+    transform: translateY(0);
+    transition-duration: 0ms;
   }
 }
