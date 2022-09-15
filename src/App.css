@@ -110,6 +110,10 @@ p {
 
 
 @media screen and (max-width: 470px) {
+  h1{
+    font-size: 36px;
+  }
+
   .card-container {
     grid-template-columns: [first] 200px;
   }
