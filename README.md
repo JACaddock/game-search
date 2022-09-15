@@ -10,7 +10,7 @@ Web app that allows you to search for any game and get any and all useful links 
 
 ## Minimum Viable Product
 
-- Styling :white_large_square:
+- Styling :white_check_mark:
 - Functionality through Styling and React :white_large_square: 
 - Search Bar :white_large_square:
 - Create API for gathering basic game info :white_large_square:
