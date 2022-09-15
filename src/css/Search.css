@@ -57,3 +57,28 @@
 .search-btn:active {
     background-color: #a35e91;
 }
+
+
+@media screen and (max-width: 360px) {
+    .search-bar {
+        width: 200px;
+    }
+
+    .search-input {
+        width: 150px;
+        font-size: 16px;
+    }
+
+    .search-input::placeholder {
+        font-size: 16px;
+    }
+
+
+    .search-btn {
+        border: 2px solid #885F7D;
+        border-radius: 10px;
+        width: 20px;
+        height: 20px;
+        background-color: #885F7D;
+    }
+  }
