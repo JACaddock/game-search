@@ -44,7 +44,7 @@ export const games = [
         "year": 2011
     },
     {
-        "name": "Sekiro",
+        "name": "Sekiro: Shadows Die Twice",
         "card": sekiro_card,
         "cover": sekiro_cover,
         "desc": `Sekiro: Shadows Die Twice is a 2019 action-adventure game developed by FromSoftware and 
@@ -81,7 +81,7 @@ export const games = [
         "year": 2022
     },
     {
-        "name": "Skyrim",
+        "name": "The Elder Scrolls V: Skyrim",
         "card": sky_card,
         "cover": sky_cover,
         "desc": `The Elder Scrolls V: Skyrim is an action role-playing video game developed by Bethesda 

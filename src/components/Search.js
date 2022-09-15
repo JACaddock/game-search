@@ -5,6 +5,7 @@ import { games } from "../games"
 
 export default function Search() {
     const [game, setGame] = useState("");
+    const [search, setSearch] = useState("");
 
     function getContent(g) {
         if (g) {
@@ -21,7 +22,11 @@ export default function Search() {
             return (
                 <div className="card-container">
                     {games.map((g)=> {
-                        return <div onClick={() => setGame(g)}><SearchCard game={g} /></div>
+                        if(g.name.toLowerCase().includes(search.toLowerCase()) || search === "") {
+                            return <div key={g.name} onClick={() => setGame(g)}><SearchCard game={g} /></div>
+                        } else {
+                            return false
+                        }
                     })}
                 </div>
             )
@@ -29,11 +34,16 @@ export default function Search() {
     }
 
 
+    function handleSearchInput(s) {
+        setSearch(s.target.value);
+    }
+
+
 
     return (
         <div className="main">
             <div className="search-bar">
-                <input placeholder="Search..." type="search" autoComplete="off" className="search-input"  />
+                <input placeholder="Search..." type="search" autoComplete="off" className="search-input" onInput={handleSearchInput}  />
                 <div className="search-dvd"></div>
                 <button className="search-btn" onClick={() => {
                     alert("Button clicked");
