@@ -1,0 +1,93 @@
+@font-face {
+    font-family: "Rubik-Light";
+    src: local('Rubik-Light'), url(./Rubik-Light.ttf) format('truetype');
+}
+
+.font-light {
+    font-family: "Rubik-Light";
+}
+  
+
+@font-face {
+    font-family: "Rubik-Medium";
+    src: local('Rubik-Medium'), url(./Rubik-Medium.ttf) format('truetype');
+}
+
+.font-medium {
+    font-family: "Rubik-Medium";
+}
+
+
+@font-face {
+    font-family: "Rubik-Regular";
+    src: local('Rubik-Regular'), url(./Rubik-Regular.ttf) format('truetype');
+}
+  
+@font-face {
+    font-family: "Rubik-SemiBold";
+    src: local('Rubik-SemiBold'), url(./Rubik-SemiBold.ttf) format('truetype');
+}
+
+.font-semibold {
+    font-family: "Rubik-SemiBold";
+}
+  
+@font-face {
+    font-family: "Rubik-Bold";
+    src: local('Rubik-Bold'), url(./Rubik-Bold.ttf) format('truetype');
+}
+
+.font-bold {
+    font-family: "Rubik-Bold";
+}
+  
+@font-face {
+    font-family: "Rubik-ExtraBold";
+    src: local('Rubik-ExtraBold'), url(./Rubik-ExtraBold.ttf) format('truetype');
+}
+
+.font-extrabold {
+    font-family: "Rubik-ExtraBold";
+}
+
+  
+@font-face {
+    font-family: "Rubik-LightItalic";
+    src: local('Rubik-LightItalic'), url(./Rubik-LightItalic.ttf) format('truetype');
+}
+
+.font-lightitalic {
+    font-family: "Rubik-LightItalic";
+}
+
+
+
+@font-face {
+    font-family: "Rubik-MediumItalic";
+    src: local('Rubik-MediumItalic'), url(./Rubik-MediumItalic.ttf) format('truetype');
+}
+  
+@font-face {
+    font-family: "Rubik-Italic";
+    src: local('Rubik-Italic'), url(./Rubik-Italic.ttf) format('truetype');
+}
+
+.font-italic {
+    font-family: "Rubik-Italic";
+}
+
+
+@font-face {
+    font-family: "Rubik-SemiBoldItalic";
+    src: local('Rubik-SemiBoldItalic'), url(./Rubik-SemiBoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Rubik-BoldItalic";
+    src: local('Rubik-BoldItalic'), url(./Rubik-BoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Rubik-ExtraBoldItalic";
+    src: local('Rubik-ExtraBoldItalic'), url(./Rubik-ExtraBoldItalic.ttf) format('truetype');
+}
