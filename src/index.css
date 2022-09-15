@@ -6,8 +6,12 @@
   background-color: #50314E;
   font-family: "Rubik-Regular";
   color: white;
+  appearance: none;
 }
 
+button {
+  appearance: none;
+}
 
 body {
   margin: 0;
@@ -15,12 +19,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-
 h1 {
   font-size: 40px;
   width: fit-content;
+  text-align: center;
 }
 
 
