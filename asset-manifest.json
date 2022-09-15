@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.css": "/game-search/static/css/main.f9b583cf.css",
-    "main.js": "/game-search/static/js/main.76244b0e.js",
+    "main.css": "/game-search/static/css/main.cae86a90.css",
+    "main.js": "/game-search/static/js/main.0607613a.js",
     "static/js/787.234fb9ee.chunk.js": "/game-search/static/js/787.234fb9ee.chunk.js",
+    "static/media/lego_star_wars_cover.jpg": "/game-search/static/media/lego_star_wars_cover.112a4d7135bd08a29585.jpg",
+    "static/media/skyrim_cover.jpg": "/game-search/static/media/skyrim_cover.54ee8cfaa3c89364c3ce.jpg",
     "static/media/TWW3_cover.jpg": "/game-search/static/media/TWW3_cover.5a69d126c6e28e9581bf.jpg",
     "static/media/minecraft_card.png": "/game-search/static/media/minecraft_card.c3ecdd3bb15fc417e35d.png",
     "static/media/Rubik-Regular.ttf": "/game-search/static/media/Rubik-Regular.974ab100afa4538622da.ttf",
@@ -18,19 +20,24 @@
     "static/media/Rubik-BoldItalic.ttf": "/game-search/static/media/Rubik-BoldItalic.bf6b4c30eff89b752e88.ttf",
     "static/media/Rubik-Italic.ttf": "/game-search/static/media/Rubik-Italic.0f10100d4b78c1db911a.ttf",
     "static/media/Rubik-LightItalic.ttf": "/game-search/static/media/Rubik-LightItalic.cf931c3b60628e1e0989.ttf",
+    "static/media/lego_potc_cover.jpg": "/game-search/static/media/lego_potc_cover.a3b12a7f33ab2e6ed86a.jpg",
     "static/media/TWW3_card.jpg": "/game-search/static/media/TWW3_card.658887ac6afd42329dda.jpg",
+    "static/media/elden_ring_cover.jpg": "/game-search/static/media/elden_ring_cover.583517d13df8ee462c20.jpg",
+    "static/media/ck3_cover.jpg": "/game-search/static/media/ck3_cover.8f1b223697a9192d277c.jpg",
+    "static/media/sekiro_cover.jpg": "/game-search/static/media/sekiro_cover.c2eff90f288e8c9dce46.jpg",
+    "static/media/minecraft_cover.jpg": "/game-search/static/media/minecraft_cover.27ed53e861809cf20d56.jpg",
     "static/media/lego_Star_Wars_card.jpg": "/game-search/static/media/lego_Star_Wars_card.69efa7cbd21f5fe6f3b7.jpg",
     "static/media/lego_POTC_card.jpg": "/game-search/static/media/lego_POTC_card.e56a5289de17fb8e9929.jpg",
     "static/media/sekiro_card.jpg": "/game-search/static/media/sekiro_card.4e1c2a622eb883c189c6.jpg",
     "static/media/ck3_card.jpg": "/game-search/static/media/ck3_card.a1931f92fe38c939b6fb.jpg",
     "static/media/elden_ring_card.jpg": "/game-search/static/media/elden_ring_card.05a270953d84ebb411a3.jpg",
     "index.html": "/game-search/index.html",
-    "main.f9b583cf.css.map": "/game-search/static/css/main.f9b583cf.css.map",
-    "main.76244b0e.js.map": "/game-search/static/js/main.76244b0e.js.map",
+    "main.cae86a90.css.map": "/game-search/static/css/main.cae86a90.css.map",
+    "main.0607613a.js.map": "/game-search/static/js/main.0607613a.js.map",
     "787.234fb9ee.chunk.js.map": "/game-search/static/js/787.234fb9ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9b583cf.css",
-    "static/js/main.76244b0e.js"
+    "static/css/main.cae86a90.css",
+    "static/js/main.0607613a.js"
   ]
 }
