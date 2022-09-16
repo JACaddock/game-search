@@ -1,11 +1,13 @@
 import SearchCard from "./SearchCard";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../css/Search.css"
 import { games } from "../games"
 
 export default function Search() {
     const [game, setGame] = useState("");
     const [search, setSearch] = useState("");
+
+    const keyRef = useRef(handleBackKey);
 
     function getContent(g) {
         if (g) {
@@ -23,7 +25,7 @@ export default function Search() {
                 <div className="card-container">
                     {games.map((g)=> {
                         if(g.name.toLowerCase().includes(search.toLowerCase()) || search === "") {
-                            return <div key={g.name} onClick={() => setGame(g)}><SearchCard game={g} /></div>
+                            return <div key={g.name} onClick={() => setGame(g)} onKeyDown={(s) => handleGameSelect(s, g)}><SearchCard game={g} /></div>
                         } else {
                             return false
                         }
@@ -33,11 +35,38 @@ export default function Search() {
         }
     }
 
-
     function handleSearchInput(s) {
         setSearch(s.target.value);
     }
 
+
+    function handleGameSelect(s, g) {
+        console.log(s.key)
+        if (s.key === "Enter") {
+            setGame(g)
+        }
+    }
+
+    function handleBackKey(e) {
+        if(e.key === "Backspace") {
+            setGame("");
+        }
+    }
+
+    useEffect(() => {
+        keyRef.current = handleBackKey;
+    })
+
+
+    useEffect(() => {
+        const key = (e) => keyRef.current(e)
+        
+        window.addEventListener("keydown", key)
+        
+        return () => {
+            window.removeEventListener("keydown", key)
+        }    
+    }, [])
 
 
     return (

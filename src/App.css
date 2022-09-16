@@ -74,6 +74,11 @@ p {
 }
 
 
+.card:focus > .card-image {
+  transform: translateY(-6rem);
+  transition-duration: 300ms;
+}
+
 .card-image {
   outline: black 2px solid;
   width: 200px;
@@ -81,10 +86,6 @@ p {
   border-radius: 10px;
 }
 
-.card:hover > .card-image {
-  transform: translateY(-6rem);
-  transition-duration: 300ms;
-}
 
 
 @media screen and (max-width: 1210px) {
@@ -142,10 +143,12 @@ p {
   }
 
   .card {
+    box-shadow: 0 0 2pt black;
     outline: none;
   }
 
   .card-image {
+    box-shadow: 0 0 3pt black;
     outline: none;
   }
 
@@ -164,8 +167,9 @@ p {
     outline: none;
   }
 
-  .card:hover > .card-image {
+  .card:focus > .card-image {
     transform: translateY(0);
+    box-shadow: 0 0 3pt 2pt white;
     transition-duration: 0ms;
   }
 }
@@ -195,8 +199,9 @@ p {
     outline: none;
   }
 
-  .card:hover > .card-image {
+  .card:focus > .card-image {
     transform: translateY(0);
+    box-shadow: 0 0 3pt 2pt white;
     transition-duration: 0ms;
   }
 }
