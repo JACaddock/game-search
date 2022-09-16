@@ -18,6 +18,7 @@ import tww3_cover from "./images/TWW3_cover.jpg"
 
 export const games = [
     {
+        "id": 0,
         "name": "Total War Warhammer III",
         "card": tww3_card,
         "cover": tww3_cover,
@@ -27,6 +28,7 @@ export const games = [
         "year": 2022
     },
     {
+        "id": 1,
         "name": "Crusader Kings III",
         "card": ck3_card,
         "cover": ck3_cover,
@@ -36,6 +38,7 @@ export const games = [
         "year": 2020
     },
     {
+        "id": 2,
         "name": "Lego Pirates of the Caribbean",
         "card": potc_card,
         "cover": potc_cover,
@@ -44,6 +47,7 @@ export const games = [
         "year": 2011
     },
     {
+        "id": 3,
         "name": "Sekiro: Shadows Die Twice",
         "card": sekiro_card,
         "cover": sekiro_cover,
@@ -53,6 +57,7 @@ export const games = [
         "year": 2019
     },
     {
+        "id": 4,
         "name": "Minecraft",
         "card": mc_card,
         "cover": mc_cover,
@@ -62,6 +67,7 @@ export const games = [
         "year": 2011
     },
     {
+        "id": 5,
         "name": "Elden Ring",
         "card": elden_card,
         "cover": elden_cover,
@@ -71,6 +77,7 @@ export const games = [
         "year": 2022
     },
     {
+        "id": 6,
         "name": "Lego Star Wars: The Skywalker Saga",
         "card": star_card,
         "cover": star_cover,
@@ -81,6 +88,7 @@ export const games = [
         "year": 2022
     },
     {
+        "id": 7,
         "name": "The Elder Scrolls V: Skyrim",
         "card": sky_card,
         "cover": sky_cover,
