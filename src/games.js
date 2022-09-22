@@ -16,7 +16,7 @@ import tww3_card from "./images/TWW3_card.jpg";
 import tww3_cover from "./images/TWW3_cover.jpg"
 
 
-export const games = [
+export const test_games = [
     {
         "id": 0,
         "name": "Total War Warhammer III",

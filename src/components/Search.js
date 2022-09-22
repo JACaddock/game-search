@@ -1,21 +1,45 @@
 import SearchCard from "./SearchCard";
-import { useEffect, useRef, useState } from "react";
-import "../css/Search.css"
-import { games } from "../games"
+import { useCallback, useEffect, useRef, useState } from "react";
+import "../css/Search.css";
+import useGame from "../hooks/useGame";
+import { useSelector, useDispatch } from "react-redux";
+import { authenticate, accessToken } from "../state/auth/authSlice";
+import { clickPage, backPage, selectPage } from "../state/page/pageSlice";
+import axios from "axios";
+
+
 
 export default function Search() {
-    const [game, setGame] = useState("");
     const [search, setSearch] = useState("");
+    const searchTimeoutRef = useRef(null);
+
+    const [filter, setFilter] = useState("");
+
+    const [loading, setLoading] = useState(false);
+    const {games, changeSearchedGames} = useGame();
 
     const keyRef = useRef(handleBackKey);
+    const authRef = useRef(false);
 
-    function getContent(g) {
-        if (g) {
+    const token = useSelector(accessToken);
+    const page = useSelector(selectPage);
+    const dispatch = useDispatch();
+
+
+    function getContent() {
+        if (loading) {
+            return (
+                <h2>Loading...</h2>
+            )
+        }
+
+        if (page >= 0) {
             return (
                 <div className="container">
-                    <img className="container-image" src={g.cover} alt={g.name} />
-                    <h2>{g.name}</h2>
-                    <p>{g.desc}</p>
+                    <img className="container-image" src={games[page].cover} alt={games[page].name} />
+                    <h2>{games[page].name}</h2>
+                    <p>{games[page].desc}</p>
+                    <p>{games[page].year}</p>
                 </div>
                 
                 )
@@ -24,8 +48,8 @@ export default function Search() {
             return (
                 <div className="card-container">
                     {games.map((g)=> {
-                        if(g.name.toLowerCase().includes(search.toLowerCase()) || search === "") {
-                            return <div key={g.name} onClick={() => setGame(g)} onKeyDown={(s) => handleGameSelect(s, g)}><SearchCard game={g} /></div>
+                        if(g.name.toLowerCase().includes(filter.toLowerCase()) || filter === "") {
+                            return <div key={g.id} onClick={() => dispatch(clickPage(g.id))} onKeyDown={(s) => handleGameSelect(s, g)}><SearchCard game={g} /></div>
                         } else {
                             return false
                         }
@@ -39,17 +63,27 @@ export default function Search() {
         setSearch(s.target.value);
     }
 
+    function handleFilterInput(s) {
+        setFilter(s.target.value);
+    }
+
 
     function handleGameSelect(s, g) {
-        console.log(s.key)
         if (s.key === "Enter") {
-            setGame(g)
+            dispatch(clickPage(g.id))
+        }
+    }
+
+
+    function handleGameSearch(s) {
+        if (s.key === "Enter") {
+            searchGames(search)
         }
     }
 
     function handleBackKey(e) {
         if(e.key === "Backspace") {
-            setGame("");
+            dispatch(backPage())
         }
     }
 
@@ -68,19 +102,91 @@ export default function Search() {
         }    
     }, [])
 
+    
+    const authenticateCallback = useCallback(async () => {
+        if (token) {
+            return true
+        } else {
+            setLoading(true)
+            await axios.post("https://id.twitch.tv/oauth2/token?client_id="+process.env.REACT_APP_CLIENT_ID+"&client_secret="+process.env.REACT_APP_CLIENT_SECRET+"&grant_type=client_credentials")
+            .then(function(res) {
+                dispatch(authenticate(res.data))
+                setLoading(false)
+            })
+        }
+    },[dispatch, token])
+
+
+    useEffect(() => {
+        if (!authRef.current) {
+            authenticateCallback()
+        }
+        
+        return () => {
+            authRef.current = true
+        }
+    },[authenticateCallback])
+
+
+    useEffect(() => {
+        searchTimeoutRef.current = setTimeout(() => {
+            //console.log(search)
+        }, 300)
+
+        return () => {
+            clearTimeout(searchTimeoutRef.current)
+        }
+    }, [search])
+
+
+    async function searchGames(query) {
+        if (query === undefined || query === "") {
+            query = 'where first_release_date > 1262304000 & cover.url != null & rating != null;';
+        } else {
+            query = 'search "' + query + '"; where category = 0;';
+        }
+
+        if (token) {
+            await axios({
+                url: "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games",
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Client-ID': process.env.REACT_APP_CLIENT_ID, 
+                    'Authorization': "Bearer " + token.access_token
+                },
+                data: `fields alternative_names,category,cover.*,artworks.*,screenshots.*,first_release_date,name,summary;`
+                       +query+
+                       `limit 30;`
+            })
+            .then(res => {
+                changeSearchedGames(res.data)
+                setSearch("")
+                dispatch(backPage())
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    }
+
 
     return (
         <div className="main">
-            <div className="search-bar">
-                <input placeholder="Search..." type="search" autoComplete="off" className="search-input" onInput={handleSearchInput}  />
+            <div id="search" className="search-bar">
+                <input placeholder="Search..." type="search" autoComplete="off" className="search-input" value={search} onInput={handleSearchInput} onKeyDown={handleGameSearch} />
                 <div className="search-dvd"></div>
-                <button className="search-btn" onClick={() => {
-                    alert("Button clicked");
-                    setGame("");
-                    }} />
+                <button className="search-btn" onClick={() => searchGames(search)} />
             </div>
 
-            {getContent(game)}
+            {page === -1 && 
+                <div id="filter" className="search-bar">
+                    <input placeholder="Filter..." type="search" autoComplete="off" className="search-input" onInput={handleFilterInput} />
+                </div> 
+            }
+            
+
+            {getContent()}
 
         </div>
     )

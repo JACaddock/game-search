@@ -1,26 +1,24 @@
-
-
-
 * {
+  appearance: none;
+  padding: 0;
+}
+
+html, body {
   margin: 0;
   background-color: #50314E;
   font-family: "Rubik-Regular";
   color: white;
   appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
   appearance: none;
 }
 
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 h1 {
-  font-size: 40px;
+  font-size: 50px;
   width: fit-content;
   text-align: center;
 }
@@ -34,4 +32,5 @@ h2 {
 
 .link {
   cursor: pointer;
+  user-select: none;
 }
