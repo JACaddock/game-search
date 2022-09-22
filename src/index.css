@@ -1,22 +1,15 @@
-
-
-
-* {
+html, body {
   margin: 0;
   background-color: #50314E;
   font-family: "Rubik-Regular";
   color: white;
   appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
   appearance: none;
-}
-
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -34,4 +27,5 @@ h2 {
 
 .link {
   cursor: pointer;
+  user-select: none;
 }
