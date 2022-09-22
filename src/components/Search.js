@@ -184,8 +184,6 @@ export default function Search() {
                     <input placeholder="Filter..." type="search" autoComplete="off" className="search-input" onInput={handleFilterInput} />
                 </div> 
             }
-            
-            <p>{process.env.REACT_APP_CLIENT_ID}</p>
 
             {getContent()}
 
