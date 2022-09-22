@@ -186,7 +186,6 @@ export default function Search() {
             }
             
             <p>{process.env.REACT_APP_CLIENT_ID}</p>
-            <p>{REACT_APP_CLIENT_ID}</p>
 
             {getContent()}
 
