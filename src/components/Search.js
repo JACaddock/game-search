@@ -13,6 +13,8 @@ export default function Search() {
     const [search, setSearch] = useState("");
     const searchTimeoutRef = useRef(null);
 
+    const [filter, setFilter] = useState("");
+
     const [loading, setLoading] = useState(false);
     const {games, changeSearchedGames} = useGame();
 
@@ -46,7 +48,7 @@ export default function Search() {
             return (
                 <div className="card-container">
                     {games.map((g)=> {
-                        if(g.name.toLowerCase().includes(search.toLowerCase()) || search === "") {
+                        if(g.name.toLowerCase().includes(filter.toLowerCase()) || filter === "") {
                             return <div key={g.id} onClick={() => dispatch(clickPage(g.id))} onKeyDown={(s) => handleGameSelect(s, g)}><SearchCard game={g} /></div>
                         } else {
                             return false
@@ -61,11 +63,21 @@ export default function Search() {
         setSearch(s.target.value);
     }
 
+    function handleFilterInput(s) {
+        setFilter(s.target.value);
+    }
+
 
     function handleGameSelect(s, g) {
-        console.log(s.key)
         if (s.key === "Enter") {
             dispatch(clickPage(g.id))
+        }
+    }
+
+
+    function handleGameSearch(s) {
+        if (s.key === "Enter") {
+            searchGames(search)
         }
     }
 
@@ -118,7 +130,7 @@ export default function Search() {
 
     useEffect(() => {
         searchTimeoutRef.current = setTimeout(() => {
-            console.log(search)
+            //console.log(search)
         }, 300)
 
         return () => {
@@ -129,9 +141,9 @@ export default function Search() {
 
     async function searchGames(query) {
         if (query === undefined || query === "") {
-            query = 'where first_release_date > 1262304000 & cover.url != null & rating != null;'
+            query = 'where first_release_date > 1262304000 & cover.url != null & rating != null;';
         } else {
-            query = 'search "' + query + '"; where category = 0;'
+            query = 'search "' + query + '"; where category = 0;';
         }
 
         if (token) {
@@ -149,6 +161,8 @@ export default function Search() {
             })
             .then(res => {
                 changeSearchedGames(res.data)
+                setSearch("")
+                dispatch(backPage())
             })
             .catch(err => {
                 console.log(err)
@@ -159,11 +173,18 @@ export default function Search() {
 
     return (
         <div className="main">
-            <div className="search-bar">
-                <input placeholder="Search..." type="search" autoComplete="off" className="search-input" onInput={handleSearchInput}  />
+            <div id="search" className="search-bar">
+                <input placeholder="Search..." type="search" autoComplete="off" className="search-input" value={search} onInput={handleSearchInput} onKeyDown={handleGameSearch} />
                 <div className="search-dvd"></div>
                 <button className="search-btn" onClick={() => searchGames(search)} />
             </div>
+
+            {page === -1 && 
+                <div id="filter" className="search-bar">
+                    <input placeholder="Filter..." type="search" autoComplete="off" className="search-input" onInput={handleFilterInput} />
+                </div> 
+            }
+            
 
             {getContent()}
 
