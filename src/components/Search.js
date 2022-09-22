@@ -16,8 +16,6 @@ export default function Search() {
     const [loading, setLoading] = useState(false);
     const {games, changeSearchedGames} = useGame();
 
-    const [pressed, setPressed] = useState(false);
-
     const keyRef = useRef(handleBackKey);
     const authRef = useRef(false);
 
@@ -130,7 +128,7 @@ export default function Search() {
 
 
     async function searchGames(query) {
-        if (query === undefined) {
+        if (query === undefined || query === "") {
             query = 'where first_release_date > 1262304000 & cover.url != null & rating != null;'
         } else {
             query = 'search "' + query + '"; where category = 0;'
@@ -150,8 +148,6 @@ export default function Search() {
                        `limit 30;`
             })
             .then(res => {
-                console.log(res.data)
-
                 changeSearchedGames(res.data)
             })
             .catch(err => {
@@ -168,8 +164,6 @@ export default function Search() {
                 <div className="search-dvd"></div>
                 <button className="search-btn" onClick={() => searchGames(search)} />
             </div>
-
-            { !pressed && <button className="btn" onClick={() => {searchGames(); setPressed(true)}}>Search</button>}
 
             {getContent()}
 

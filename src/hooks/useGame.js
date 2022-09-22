@@ -35,8 +35,6 @@ export default function useGame() {
             return next_games
         })
 
-        console.log(next_games)
-
         setGames(next_games)
         return true
     }
