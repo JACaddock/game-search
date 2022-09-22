@@ -17,14 +17,18 @@ export default function useGame() {
         let next_games = []
 
         Object.values(new_games).map((game, index) => {
-            let year = new Date(game.first_release_date * 1000).getFullYear()
+            let year = new Date(game.first_release_date * 1000).getFullYear();
+            
+            let card = game.cover ? "//images.igdb.com/igdb/image/upload/t_cover_big/" + game.cover.image_id + ".jpg" : default_game.card;
+            let cover = game.artworks ? "//images.igdb.com/igdb/image/upload/t_screenshot_huge/" + game.artworks[0].image_id + ".jpg" : default_game.cover;
+
 
             next_games.push({
                 "id": index,
                 "name": game.name ? game.name : default_game.name,
-                "card": game.cover ? game.cover.url : default_game.card,
+                "card": card,
                 "desc": game.summary ? game.summary : default_game.desc,
-                "cover": game.screenshots ? game.screenshots[0].url : default_game.cover,
+                "cover": cover,
                 "year": year ? year : default_game.year
             })
 

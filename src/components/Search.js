@@ -129,7 +129,13 @@ export default function Search() {
     }, [search])
 
 
-    async function searchGames() {
+    async function searchGames(query) {
+        if (query === undefined) {
+            query = 'where first_release_date > 1262304000 & cover.url != null & rating != null;'
+        } else {
+            query = 'search "' + query + '"; where category = 0;'
+        }
+
         if (token) {
             await axios({
                 url: "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games",
@@ -139,7 +145,9 @@ export default function Search() {
                     'Client-ID': process.env.REACT_APP_CLIENT_ID, 
                     'Authorization': "Bearer " + token.access_token
                 },
-                data: "fields alternative_names,category,cover.url,artworks.url,screenshots.url,collection,first_release_date,genres,keywords,name,screenshots,storyline,summary,tags,themes,websites; where first_release_date > 1262304000; limit 30;"
+                data: `fields alternative_names,category,cover.*,artworks.*,screenshots.*,first_release_date,name,summary;`
+                       +query+
+                       `limit 30;`
             })
             .then(res => {
                 console.log(res.data)
@@ -158,7 +166,7 @@ export default function Search() {
             <div className="search-bar">
                 <input placeholder="Search..." type="search" autoComplete="off" className="search-input" onInput={handleSearchInput}  />
                 <div className="search-dvd"></div>
-                <button className="search-btn" onClick={() => alert("Clicked!")} />
+                <button className="search-btn" onClick={() => searchGames(search)} />
             </div>
 
             { !pressed && <button className="btn" onClick={() => {searchGames(); setPressed(true)}}>Search</button>}
