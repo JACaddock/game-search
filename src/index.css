@@ -11,6 +11,7 @@ html, body {
   appearance: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: overlay;
 }
 
 button {
@@ -33,4 +34,9 @@ h2 {
 .link {
   cursor: pointer;
   user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: black;
 }
