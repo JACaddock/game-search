@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/game-search/static/css/main.2effd546.css",
-    "main.js": "/game-search/static/js/main.17d4fb67.js",
+    "main.css": "/game-search/static/css/main.2ae8f090.css",
+    "main.js": "/game-search/static/js/main.8f810bac.js",
     "static/js/787.234fb9ee.chunk.js": "/game-search/static/js/787.234fb9ee.chunk.js",
     "static/media/lego_star_wars_cover.jpg": "/game-search/static/media/lego_star_wars_cover.112a4d7135bd08a29585.jpg",
     "static/media/skyrim_cover.jpg": "/game-search/static/media/skyrim_cover.54ee8cfaa3c89364c3ce.jpg",
@@ -32,12 +32,12 @@
     "static/media/ck3_card.jpg": "/game-search/static/media/ck3_card.a1931f92fe38c939b6fb.jpg",
     "static/media/elden_ring_card.jpg": "/game-search/static/media/elden_ring_card.05a270953d84ebb411a3.jpg",
     "index.html": "/game-search/index.html",
-    "main.2effd546.css.map": "/game-search/static/css/main.2effd546.css.map",
-    "main.17d4fb67.js.map": "/game-search/static/js/main.17d4fb67.js.map",
+    "main.2ae8f090.css.map": "/game-search/static/css/main.2ae8f090.css.map",
+    "main.8f810bac.js.map": "/game-search/static/js/main.8f810bac.js.map",
     "787.234fb9ee.chunk.js.map": "/game-search/static/js/787.234fb9ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2effd546.css",
-    "static/js/main.17d4fb67.js"
+    "static/css/main.2ae8f090.css",
+    "static/js/main.8f810bac.js"
   ]
 }
