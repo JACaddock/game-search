@@ -49,7 +49,7 @@ export default function Search() {
                 <div className="card-container">
                     {games.map((g)=> {
                         if(g.name.toLowerCase().includes(filter.toLowerCase()) || filter === "") {
-                            return <div key={g.id} onClick={() => dispatch(clickPage(g.id))} onKeyDown={(e) => handleGameSelect(e, g)}><SearchCard game={g} /></div>
+                            return <div key={g.id} onClick={(e) => handleGameSelect(e, g)} onKeyDown={(e) => handleGameSelect(e, g)}><SearchCard game={g} /></div>
                         } else {
                             return false
                         }
@@ -69,7 +69,7 @@ export default function Search() {
 
 
     function handleGameSelect(e, g) {
-        if (e.key === "Enter" || e.key === "Return") {
+        if (e.key === "Enter" || e.key === "Return" || e.type === "click") {
             dispatch(clickPage(g.id))
         }
     }
@@ -162,6 +162,7 @@ export default function Search() {
             .then(res => {
                 changeSearchedGames(res.data)
                 setSearch("")
+                setFilter("")
                 dispatch(backPage())
             })
             .catch(err => {
@@ -181,7 +182,7 @@ export default function Search() {
 
             {page === -1 && 
                 <div id="filter" className="search-bar">
-                    <input placeholder="Filter..." type="search" autoComplete="off" className="search-input" onInput={handleFilterInput} />
+                    <input placeholder="Filter..." type="search" autoComplete="off" className="search-input" value={filter} onInput={handleFilterInput} />
                 </div> 
             }
 
