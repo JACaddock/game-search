@@ -12,6 +12,7 @@ import axios from "axios";
 export default function Search() {
     const [search, setSearch] = useState("");
     const searchTimeoutRef = useRef(null);
+    const focusRef = useRef(null);
 
     const [filter, setFilter] = useState("");
 
@@ -24,7 +25,6 @@ export default function Search() {
     const token = useSelector(accessToken);
     const page = useSelector(selectPage);
     const dispatch = useDispatch();
-
 
     function getContent() {
         if (loading) {
@@ -49,7 +49,7 @@ export default function Search() {
                 <div className="card-container">
                     {games.map((g)=> {
                         if(g.name.toLowerCase().includes(filter.toLowerCase()) || filter === "") {
-                            return <div key={g.id} onClick={() => dispatch(clickPage(g.id))} onKeyDown={(s) => handleGameSelect(s, g)}><SearchCard game={g} /></div>
+                            return <div key={g.id} onClick={() => dispatch(clickPage(g.id))} onKeyDown={(e) => handleGameSelect(e, g)}><SearchCard game={g} /></div>
                         } else {
                             return false
                         }
@@ -68,21 +68,21 @@ export default function Search() {
     }
 
 
-    function handleGameSelect(s, g) {
-        if (s.key === "Enter") {
+    function handleGameSelect(e, g) {
+        if (e.key === "Enter" || e.key === "Return") {
             dispatch(clickPage(g.id))
         }
     }
 
 
-    function handleGameSearch(s) {
-        if (s.key === "Enter") {
+    function handleGameSearch(e) {
+        if (e.key === "Enter" || e.key === "Return") {
             searchGames(search)
         }
     }
 
     function handleBackKey(e) {
-        if(e.key === "Backspace") {
+        if((document.activeElement !== focusRef.current && e.key === "Backspace") || e.key === "Escape") {
             dispatch(backPage())
         }
     }
@@ -174,7 +174,7 @@ export default function Search() {
     return (
         <div className="main">
             <div id="search" className="search-bar">
-                <input placeholder="Search..." type="search" autoComplete="off" className="search-input" value={search} onInput={handleSearchInput} onKeyDown={handleGameSearch} />
+                <input placeholder="Search..." type="search" autoComplete="off" className="search-input" ref={focusRef} value={search} onInput={handleSearchInput} onKeyDown={handleGameSearch} />
                 <div className="search-dvd"></div>
                 <button className="search-btn" onClick={() => searchGames(search)} />
             </div>
