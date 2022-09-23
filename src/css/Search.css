@@ -17,6 +17,14 @@
     width: 180px;
 }
 
+.search-bar#filter > .search-input::-ms-clear {
+    display: block;
+}
+
+.search-bar#filter > .search-input::-webkit-search-cancel-button {
+    display: block;
+}
+
 
 
 .search-input {
