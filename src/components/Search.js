@@ -148,7 +148,7 @@ export default function Search() {
 
         if (token) {
             await axios({
-                url: "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games",
+                url: "/games",
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
