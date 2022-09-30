@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - fix-CORS-issue
+      - master
 permissions:
   contents: write
 
