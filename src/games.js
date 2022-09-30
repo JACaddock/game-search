@@ -13,7 +13,19 @@ import star_cover from "./images/lego_star_wars_cover.jpg";
 import sky_card from "./images/skyrim_card.png";
 import sky_cover from "./images/skyrim_cover.jpg";
 import tww3_card from "./images/TWW3_card.jpg";
-import tww3_cover from "./images/TWW3_cover.jpg"
+import tww3_cover from "./images/TWW3_cover.jpg";
+import ph_card from "./images/ph_card.png";
+import ph_cover from "./images/ph_cover.png";
+
+
+export const placeholder_game = {
+    "name": "N/A",
+    "card": ph_card,
+    "cover": ph_cover,
+    "desc": `This is a placeholder Description as the game one could not be found.`,
+    "year": 0
+}
+
 
 
 export const test_games = [

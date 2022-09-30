@@ -39,7 +39,7 @@ export default function Search() {
                     <img className="container-image" src={games[page].cover} alt={games[page].name} />
                     <h2>{games[page].name}</h2>
                     <p>{games[page].desc}</p>
-                    <p>{games[page].year}</p>
+                    <p>{games[page].year ? games[page].year : ""}</p>
                 </div>
                 
                 )

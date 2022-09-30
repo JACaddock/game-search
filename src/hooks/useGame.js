@@ -1,16 +1,10 @@
 import { useState } from "react";
-import { test_games } from "../games";
+import { test_games, placeholder_game } from "../games";
 
 export default function useGame() {
     const [games, setGames] = useState(test_games)
 
-    const default_game = {
-        "name": "N/A",
-        "card": test_games[2].card,
-        "desc": test_games[2].desc,
-        "cover": test_games[2].cover,
-        "year": test_games[2].year
-    }
+    const default_game = placeholder_game;
 
 
     function changeSearchedGames(new_games) {
