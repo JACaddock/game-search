@@ -102,7 +102,7 @@ export default function Search() {
         }    
     }, [])
 
-    
+    /*    
     const authenticateCallback = useCallback(async () => {
         if (token) {
             return true
@@ -126,7 +126,7 @@ export default function Search() {
             authRef.current = true
         }
     },[authenticateCallback])
-
+    */
 
     useEffect(() => {
         searchTimeoutRef.current = setTimeout(() => {
@@ -145,15 +145,12 @@ export default function Search() {
         } else {
             query = 'search "' + query + '"; where category = 0;';
         }
-
-        if (token) {
+        
             await axios({
-                url: "/games",
-                method: 'POST',
+                url: "https://odihs6v9c3.execute-api.us-west-2.amazonaws.com/production/v4/games",
+                method: 'post',
                 headers: {
-                    'Accept': 'application/json',
-                    'Client-ID': process.env.REACT_APP_CLIENT_ID, 
-                    'Authorization': "Bearer " + token.access_token
+                    'x-api-key': 'YmzDwR8Y3D5XAmRbeMYOi3kPfi8YJG3Z9egnSGD4',
                 },
                 data: `fields alternative_names,category,cover.*,artworks.*,screenshots.*,first_release_date,name,summary;`
                        +query+
@@ -168,7 +165,7 @@ export default function Search() {
             .catch(err => {
                 console.log(err)
             })
-        }
+        
     }
 
 
