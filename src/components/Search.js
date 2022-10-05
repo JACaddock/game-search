@@ -1,9 +1,8 @@
 import SearchCard from "./SearchCard";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../css/Search.css";
 import useGame from "../hooks/useGame";
 import { useSelector, useDispatch } from "react-redux";
-import { authenticate, accessToken } from "../state/auth/authSlice";
 import { clickPage, backPage, selectPage } from "../state/page/pageSlice";
 import axios from "axios";
 
@@ -20,9 +19,7 @@ export default function Search() {
     const {games, changeSearchedGames} = useGame();
 
     const keyRef = useRef(handleBackKey);
-    const authRef = useRef(false);
 
-    const token = useSelector(accessToken);
     const page = useSelector(selectPage);
     const dispatch = useDispatch();
 
@@ -102,31 +99,6 @@ export default function Search() {
         }    
     }, [])
 
-    /*    
-    const authenticateCallback = useCallback(async () => {
-        if (token) {
-            return true
-        } else {
-            setLoading(true)
-            await axios.post("https://id.twitch.tv/oauth2/token?client_id="+process.env.REACT_APP_CLIENT_ID+"&client_secret="+process.env.REACT_APP_CLIENT_SECRET+"&grant_type=client_credentials")
-            .then(function(res) {
-                dispatch(authenticate(res.data))
-                setLoading(false)
-            })
-        }
-    },[dispatch, token])
-
-
-    useEffect(() => {
-        if (!authRef.current) {
-            authenticateCallback()
-        }
-        
-        return () => {
-            authRef.current = true
-        }
-    },[authenticateCallback])
-    */
 
     useEffect(() => {
         searchTimeoutRef.current = setTimeout(() => {
@@ -140,6 +112,8 @@ export default function Search() {
 
 
     async function searchGames(query) {
+        setLoading(true);
+
         if (query === undefined || query === "") {
             query = 'where first_release_date > 1262304000 & cover.url != null & rating != null;';
         } else {
@@ -150,7 +124,7 @@ export default function Search() {
                 url: "https://odihs6v9c3.execute-api.us-west-2.amazonaws.com/production/v4/games",
                 method: 'post',
                 headers: {
-                    'x-api-key': 'YmzDwR8Y3D5XAmRbeMYOi3kPfi8YJG3Z9egnSGD4',
+                    'x-api-key': 'YmzDwR8Y3D5XAmRbeMYOi3kPfi8YJG3Z9egnSGD4'
                 },
                 data: `fields alternative_names,category,cover.*,artworks.*,screenshots.*,first_release_date,name,summary;`
                        +query+
@@ -161,11 +135,11 @@ export default function Search() {
                 setSearch("")
                 setFilter("")
                 dispatch(backPage())
+                setLoading(false)
             })
             .catch(err => {
                 console.log(err)
             })
-        
     }
 
 
