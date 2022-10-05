@@ -28,6 +28,7 @@
 
 
 .search-input {
+    color: #a06d9d;
     background-color: #50314E;
     border: none;
     outline: none;
@@ -37,7 +38,7 @@
 .search-input::placeholder {
     color: #A580A3;
     font-size: inherit;
-    opacity: 75%;
+    opacity: 60%;
 }
 
 
